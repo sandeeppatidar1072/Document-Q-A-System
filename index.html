@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Q&A System</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 60px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            color: #4a4a4a;
+        }
+
+        form {
+            margin: 15px 0;
+        }
+
+        input[type="file"],
+        input[type="text"] {
+            padding: 12px;
+            width: 70%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102,126,234,0.5);
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            background: #667eea;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+
+        .answer-box {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f7f7f7;
+            border-left: 5px solid #667eea;
+            text-align: left;
+        }
+
+        .answer-box h3 {
+            margin-top: 0;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>📄 Document Q&A System</h1>
+
+        <!-- Upload PDF -->
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="pdf" required>
+            <br><br>
+            <button type="submit">Upload PDF</button>
+        </form>
+
+        <!-- Ask Question -->
+        <form method="POST">
+            <input type="text" name="question" placeholder="Ask something from the document..." required>
+            <br><br>
+            <button type="submit">Ask Question</button>
+        </form>
+
+        <!-- Answer -->
+        <div class="answer-box">
+            <h3>Answer:</h3>
+            <p>{{ answer }}</p>
+        </div>
+
+        <div class="footer">
+            Built with ❤️ using Flask
+        </div>
+    </div>
+
+</body>
+</html>
